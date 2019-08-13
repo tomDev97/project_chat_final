@@ -1,14 +1,15 @@
-var express = require("express");
-var app = express();
+// const express = require("express");
+import express from "express";
+const app = express();
 
-var hostname = 'localhost';
-var port = 1997;
+const hostname = 'localhost';
+const port = 1997;
 
 app.get('/hello', (req, res) => {
-    res.send("<h1>Hello World</h1>")
+  res.send("<h1>Hello World</h1>")
 });
 
 
 app.listen(port, hostname, () => {
-    console.log(`starting with ${hostname}:${port}`);
+  console.log(`starting with ${hostname}:${port}`);
 })
