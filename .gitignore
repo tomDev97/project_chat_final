@@ -63,3 +63,7 @@ typings/
 
 
 sh/env.sh
+
+Bower.json
+
+src/public/bower_components

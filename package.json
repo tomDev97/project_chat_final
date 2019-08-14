@@ -19,7 +19,9 @@
   "homepage": "https://github.com/tomDev97/project_chat_final#readme",
   "dependencies": {
     "bluebird": "^3.5.3",
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "express-ejs-extend": "0.0.1",
     "mongoose": "^4.13.9"
   },
   "devDependencies": {

@@ -1,29 +1,39 @@
 // const express = require("express");
 import express from "express";
 import ConnectDb from "./config/connectToDb";
-import ContacModel from './models/contact.model'
+// import ContacModel from './models/contact.model'
+import configVieEngine from './config/viewEngine'
 
 const app = express();
+
 //connect to mongodb
 ConnectDb();
 
+//config view engine
+configVieEngine(app); 
 
 
-app.get('/test', async (req, res) => {
-  try {
-    let item = {
-      userId: 'asdadsad',
-      contactId: 'ddfsff'
-    };
+app.get('/', (req, res) => {
+  return res.render('main/master');
+})
 
-    let contact = await ContacModel.createNew(item);
+app.get('/login-register', (req, res) => {
+  return res.render('auth/loginRegister');
+})
 
-    res.send(contact);
-  } catch (error) {
-    console.log(error);
-  }
 
-});
+// app.get('/test', async (req, res) => {
+//   try {
+//     let item = {
+//       userId: 'asdadsad',
+//       contactId: 'ddfsff'
+//     };
+//     let contact = await ContacModel.createNew(item);
+//     res.send(contact);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 
 app.listen(process.env.APP_PORT, process.env.APP_HOST, () => {
