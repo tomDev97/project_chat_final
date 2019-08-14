@@ -3,6 +3,8 @@ import express from "express";
 import ConnectDb from "./config/connectToDb";
 // import ContacModel from './models/contact.model'
 import configVieEngine from './config/viewEngine'
+//import api
+import initAllRoutes from './routers/api';
 
 const app = express();
 
@@ -10,17 +12,10 @@ const app = express();
 ConnectDb();
 
 //config view engine
-configVieEngine(app); 
+configVieEngine(app);
 
-
-app.get('/', (req, res) => {
-  return res.render('main/master');
-})
-
-app.get('/login-register', (req, res) => {
-  return res.render('auth/loginRegister');
-})
-
+//use route api 
+initAllRoutes(app);
 
 // app.get('/test', async (req, res) => {
 //   try {
