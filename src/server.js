@@ -1,6 +1,8 @@
 // const express = require("express");
 import express from "express";
 import ConnectDb from "./config/connectToDb";
+
+import bodyParser from 'body-parser';
 // import ContacModel from './models/contact.model'
 import configVieEngine from './config/viewEngine'
 //import api
@@ -13,6 +15,11 @@ ConnectDb();
 
 //config view engine
 configVieEngine(app);
+
+//middle ware : Body Parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 //use route api 
 initAllRoutes(app);
