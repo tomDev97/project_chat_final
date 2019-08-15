@@ -7,11 +7,18 @@ import bodyParser from 'body-parser';
 import configVieEngine from './config/viewEngine'
 //import api
 import initAllRoutes from './routers/api';
+//import connect  flash msg 
+import flash from 'connect-flash';
+
+import configSession  from './config/session'; 
 
 const app = express();
 
 //connect to mongodb
 ConnectDb();
+
+//config session 
+configSession(app);
 
 //config view engine
 configVieEngine(app);
@@ -20,6 +27,8 @@ configVieEngine(app);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//middle ware : connect flash message
+app.use(flash());
 
 //use route api 
 initAllRoutes(app);
