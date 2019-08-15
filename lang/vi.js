@@ -5,3 +5,7 @@ export const transValidation = {
   password_confirmation_incorret : "Mật khẩu nhập lại chưa chính xác!",
 
 }
+
+export const transErorrs = {
+  account_in_use : "Email này đã được sử dụng"
+}

@@ -31,4 +31,15 @@ let UserSchema = new Schema({
 
 });
 
+UserSchema.statics = {
+  createNew(item) {
+    return this.create(item);
+    //this = ContactScchema
+  },
+  findByEmail(email) {
+    return this.findOne({"local.email": email}).exec();
+  }
+  
+};
+
 module.exports = mongoose.model('user', UserSchema);
